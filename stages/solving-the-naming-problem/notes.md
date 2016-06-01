@@ -14,12 +14,21 @@ Notice how this had unexpected consequences elsewhere on the page?
 
 The problem is that we have 2 things called `title`. How can we fix it?
 
-1. increase specificity? Eg. `.card .title`. Never-ending specificity battle.
-2. come up with unique names? Eg. BEM `.card__title`. Takes a lot of discipline, everyone in the team needs to consistently follow the same convention.
+<h3 class="title">1. increase specificity?</h3>
+
+Eg. `.card .title`.
+
+The problem with this approach is that as the project grows it leads to a never-ending specificity battle.  There's always a chance that someone will introduce a new selector which has unintended cascades.
+
+<h3 class="title">2. come up with unique names?</h3>
+
+Eg. BEM or SUIT conventions tell us to write classes like `.card__title`.
+
+The downside to this approach is that it takes a lot of discipline.  Everyone in the team needs to consistently follow the same convention, and it becomes more complex the bigger your project gets.
 
 <h2 class="title">Solution</h2>
 
-Let's use the power of CSS Modules to guarantee that we get a unique name.
+Let's invoke the power of CSS Modules to guarantee that we get a unique name.
 
 **Task**: edit the webpack config
 

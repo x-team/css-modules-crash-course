@@ -1,5 +1,7 @@
 var styles = require('./card.css')
 
+console.log(styles)
+
 module.exports = function (data) {
   return `
 <div class="${styles.card}">

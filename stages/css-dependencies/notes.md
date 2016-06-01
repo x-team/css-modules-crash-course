@@ -19,7 +19,7 @@ var myModule = require('./my-module.js')
 <div class="core-concept">
 ## CSS Modules allows JS modules to have CSS dependencies
 
-CSS Modules allows us to declare a `css -> js` dependency in a similar form to a `js -> js` dependency.
+CSS Modules allows us to declare a `js -> css` dependency in a similar form to a `js -> js` dependency.
 
 eg:
 
