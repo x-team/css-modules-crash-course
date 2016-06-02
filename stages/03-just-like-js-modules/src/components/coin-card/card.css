@@ -1,12 +1,12 @@
 .root {
-  composes: root from "../card/card.css";
+  composes: root from "../common-card/card.css";
 }
 
 .inner {
-  composes: inner from "../card/card.css";
+  composes: inner from "../common-card/card.css";
 }
 
 .image {
-  composes: image from "../card/card.css";
+  composes: image from "../common-card/card.css";
   width: 80%;
 }
