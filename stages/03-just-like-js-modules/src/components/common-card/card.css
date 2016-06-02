@@ -12,6 +12,11 @@
   display: inline-block;
   vertical-align: top;
   margin-right: 32px;
+  transition: all 0.5s ease-in-out;
+}
+
+.root:hover {
+  box-shadow: -4px 14px 16px midGrey;
 }
 
 .inner {

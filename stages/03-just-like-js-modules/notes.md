@@ -92,6 +92,8 @@ We've seen 2 different kinds of cards so far, Coins and PowerUps. They have diff
 
 Now rebuild with `npm run build` and refresh the page to see your changes.
 
+Notice that when you compose the common `.root` class, it also brings across `.root:hover`. Pseudo-selectors are part of the class.
+
 At first glance, `composes` might seem similar to [the extend concept](https://css-tricks.com/the-extend-concept/) used by a lot of preprocessors. However `composes` is subtly different, in that it doesn't have any effect at all on the generated CSS (take a look and you'll see!). The only effect that it has is on the CSS Module's exported tokens. So for example, the DOM node will have 2 classnames instead of 1.
 
 <div class="core-concept">
