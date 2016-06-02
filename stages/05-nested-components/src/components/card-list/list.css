@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  text-transform: uppercase;
+  font-family: monospace;
+  background: #000;
+  color: #FFF;
+  display: inline;
+}
+
+.card {
+  margin-top: 32px;
+}

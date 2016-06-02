@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>CSS Modules Crash Course</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="../../assets/theme.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="content">
+<h1 data-number="05">Component Variants</h1>
+
+<p>CSS Modules composition is useful for making new components out of existing ones, but sometimes we need to provide multiple states or variations of the same component.</p>
+<p>Let&#39;s implement the following features in our game:</p>
+<pre><code>As a Player
+I want to see which cards are new
+So that my micropurchase reflex is triggered</code></pre>
+<pre><code>As a Player
+I want to know which cards I don&#39;t have enough coins for
+So that I can feel bad about myself</code></pre>
+<p>To implement these we&#39;ve added 2 new properties to the <code>Card</code> component: <code>isNew</code> and <code>isEnabled</code>. Each of these flags will apply a different visual state to the card. To do this we&#39;ve got 2 classes:</p>
+<ul>
+<li><code>.new</code>: this class puts a blue circle with the word &quot;NEW&quot; in it, on the top-left corner of the card.</li>
+<li><code>.disabled</code>: this class causes the card to appear faded out.</li>
+</ul>
+<p>Also, our AB tests have indicated that a player&#39;s micropurchase reflex is heightened when they are already feeling bad about themselves. So we definitely want to be able to combine both the <code>.new</code> and the <code>.disabled</code> classes, as well as using them individually.</p>
+<ul>
+<li>new</li>
+<li>disabled</li>
+<li>disabled + new</li>
+</ul>
+<div id="root"></div>
+
+<div class="core-concept">
+<h2>Use <code>composes</code> for making new components, and compose classes manually within the JS component for state-based variations.</h2>
+</div>
+
+        </div>
+        <script src="dist/index.js"></script>
+    </body>
+</html>

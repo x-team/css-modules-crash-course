@@ -1,23 +1,34 @@
-# Nested Components
+# Component Variants
 
-## Game
+CSS Modules composition is useful for making new components out of existing ones, but sometimes we need to provide multiple states or variations of the same component.
 
-We have a screen where you can add cards to your deck.
+Let's implement the following features in our game:
 
-We display all of the cards available, with an "Add To Deck" button.
+```
+As a Player
+I want to see which cards are new
+So that my micropurchase reflex is triggered
+```
 
-There is also a "Save Deck" button that you can click when you're done.
+```
+As a Player
+I want to know which cards I don't have enough coins for
+So that I can feel bad about myself
+```
 
-Both buttons should be based on the `Button` component, but we want the "Add To Deck" button to use a custom style.
+To implement these we've added 2 new properties to the `Card` component: `isNew` and `isEnabled`. Each of these flags will apply a different visual state to the card, via the following CSS classes:
 
-----
+- `.new`: adds a blue circle to the top-left corner of the card with the word "NEW".
+- `.disabled`: causes the card to appear darkened.
 
-Look at how the `Button` component does an `Object.assign` so it can use default styles or custom override
+Also, our AB tests have indicated that a player's micropurchase reflex is heightened when they are already feeling bad about themselves. So we definitely want to be able to combine both the `.new` and the `.disabled` classes, as well as using them individually.
 
-**Task:** write `AddToDeck/button.css` module to give the buttons a custom appearance when they are used in the `AddToDeck` list.
+- new
+- disabled
+- disabled + new
 
-**Tip:** you can think of the tokens exported by a css module as its API
+<div id="root"></div>
 
-- further reading:
-  - https://github.com/css-modules/css-modules/issues/147
-  - http://simurai.com/blog/2015/05/11/nesting-components
+<div class="core-concept">
+<h2>Use `composes` for making new components, and compose classes manually within the JS component for state-based variations.</h2>
+</div>

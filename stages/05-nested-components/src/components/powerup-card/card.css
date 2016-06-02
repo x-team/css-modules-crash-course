@@ -1,0 +1,73 @@
+.root {
+  composes: root from "../card/card.css";
+}
+
+.inner {
+  composes: inner from "../card/card.css";
+}
+
+.image {
+  composes: image from "../card/card.css";
+  border: 1px solid #000;
+  margin-bottom: -32px;
+}
+
+.description {
+  margin: 16px;
+  background: #FFF;
+  height: 30%;
+  width: 80%;
+  padding: 16px;
+  font-family: "Comic Sans MS";
+  font-size: 16px;
+  text-shadow: none;
+  text-transform: none;
+}
+
+.title {
+  text-transform: uppercase;
+  font-family: impact;
+  color: #FFF;
+  text-shadow: 0 0 3px #000;
+}
+
+.new {
+  position: relative;
+}
+
+.new::before {
+  content: "NEW!";
+  background: #00f;
+  color: #fff;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 50px;
+  height: 50px;
+  transform: rotate(-45deg);
+  border-radius: 50px;
+  line-height: 50px;
+  box-shadow: 0px 0px 30px #f0f;
+}
+
+.disabled {
+  background: #999;
+}
+
+.disabled .inner {
+  background: #333;
+}
+
+.disabled .image {
+  opacity: 0.4;
+}
+
+.disabled .description {
+  visibility: hidden;
+}
+
+.disabled .description::before {
+  content: "not enough coins";
+  color: #fff;
+  visibility: visible;
+}
