@@ -6,66 +6,50 @@
     </head>
     <body>
         <div class="content">
-<h1 data-number="03">CSS Modules are just like JS Modules</h1>
-<h2>Q. What is a module?</h2>
-<p>For our purposes here let&#39;s say that a Module is an isolated portion of code that only has knowledge of the outside world through the things it <em>imports</em>, and only communicates with the outside world though the things it <em>exports</em>.</p>
-<pre><code class="lang-js">var squareOf = require(&#39;./square-of&#39;)
+<h1 data-number="04">What&#39;s in a Name?</h1>
+<p>When writing UI components we often want to use default styles and then override them as needed. For example, we might want a Card component to appear slightly differently based on whether it is in the players hand, or the discard pile.</p>
+<h2>Traditional CSS</h2>
+<p>Here&#39;s how this is often solved in traditional CSS:</p>
+<pre><code>.item {
+  color: red;
+  background: green;
+}
 
-module.exports = function addSquares (a, b) {
-  return squareOf(a) + squareOf(b)
+.list .item {
+  color: blue;
 }</code></pre>
-<h2>What does a CSS Module export?</h2>
-<p>Let&#39;s take a look.</p>
-<p><strong>Task:</strong> edit <code>src/components/card/index.js</code></p>
-<p>After <code>var styles = require(&#39;./card.css&#39;)</code> add:</p>
-<pre><code>console.log(styles)</code></pre>
-<p>You&#39;ll see something like this in the console:</p>
-<pre><code>{
-  card: &quot;card__card___3NKVt&quot;,
-  inner: &quot;card__inner___39eh3&quot;,
-  image: &quot;card__image___orw8-&quot;,
-  title: &quot;card__title___2GiVs&quot;
+<p>What&#39;s happening here? We&#39;re define default styles as <code>.item</code>, and the we redefine what <code>.item</code> means when it&#39;s in the context of a <code>.list</code>.</p>
+<p>This is fine when your codebase is small and simple, but it introduces some really tricky problems. Now, in order to understand what <code>.item</code> means you can&#39;t just look at one part of the CSS, you need to at all of the CSS <em>and</em> know the context that it&#39;s being used in.</p>
+<p>Imagine a function that behaved differently depending on where it was called from...</p>
+<h2>CSS Modules says &quot;compose, don&#39;t cascade&quot;</h2>
+<p>To address this, CSS Modules discourages redefining classes and instead gives us better ways to compose them. For example, we could rewrite the CSS above without redefining the meaning of any classes:</p>
+<pre><code>.item {
+  color: red;
+  background: green;
+}
+
+.listItem {
+  composes: item;
+  color: blue;
 }</code></pre>
-<p>On the left-hand side is the &quot;local name&quot; of the class, and on the right-hand size is the &quot;class token&quot; (that is, the actual classname used in the generated CSS).</p>
 <div class="core-concept">
-<h2>A CSS Module exports a map of local names to class tokens</h2>
+<h2>A name should mean 1 thing only</h2>
 </div>
 
-<h2>CSS Modules can also import</h2>
-<p>As well as exporting class tokens, CSS Modules can import and export values using the special <code>@value</code> syntax. Anything defined as a <code>@value</code> can be used in a property-value.</p>
-<p>To define a <code>@value</code>:</p>
-<pre><code>@value myRed: #F66;
-
-.banner {
-  background-color: myRed;
-}</code></pre>
-<p>To import a value from another CSS Module:</p>
-<pre><code>@value myRed from &quot;./colors.css&quot;;
-
-.banner {
-  background-color: myRed;
-}</code></pre>
-<h2>Composing classes</h2>
-<p>There are times when we want more than just a value, we want to import a group of styles.</p>
-<p>Traditional CSS already has this concept of classes, and CSS Modules gives us an easy way to compose multiple classes together.</p>
-<pre><code>.sharknado {
-  composes: shark;
-  composes: tornado from &quot;./natural-disasters.css&quot;;
-}</code></pre>
-<h2>Sharing Card styles</h2>
-<p>We&#39;ve seen 2 different kinds of cards so far, Coins and PowerUps. They have different layouts but some common styles. And if we are doing computering good we ought to be able to reuse those styles in both places.</p>
-<div id="root"></div>
+<h2>The Player&#39;s Hand and the Discard Pile</h2>
+<p>When we have <code>Card</code> components in the player&#39;s hand we want to show them in a row, with a nice blue glow around them.</p>
+<p>When a <code>Card</code> is discarded it goes to a pile. These cards have less dropshadow and are stacked on top of each other.</p>
 
 <div class="task">
-<ul>
-<li>edit the css for <code>components/coin-card</code> and <code>components/powerup-card</code> so that they compose common styles from <code>components/card/card.css</code></li>
-<li>edit <code>src/components/card/card.css</code> to use color values from <code>src/shared/colors.css</code></li>
-</ul>
-<p>Now rebuild with <code>npm run build</code> and refresh the page to see your changes.</p>
-</div>
+<p>Make <code>.cardInHand</code> and <code>.cardInDiscardPile</code> classes that compose the general <code>card</code> class.</p>
+<p>eg.</p>
+<pre><code>.cardInHand {
+  composes: card;
 
-<div class="core-concept">
-<h2>`composes` doesn't change the CSS. It only applies additional classnames to a DOM node</h2>
+  /* ...
+  custom overrides here
+  ... */
+}</code></pre>
 </div>
         </div>
         <script src="dist/index.js"></script>

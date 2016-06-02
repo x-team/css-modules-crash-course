@@ -17,13 +17,13 @@ Here's how this is often solved in traditional CSS:
 }
 ```
 
-What's happening here? We're define default styles as `.item`, and the we redefine what `.item` means when it's in the context of a `.list`.
+What's happening here? We've given the default styles the name of `.item`, and then we've redefined what `.item` means when it's in the context of a `.list`.
 
-This is fine when your codebase is small and simple, but it introduces some really tricky problems. Now, in order to understand what `.item` means you can't just look at one part of the CSS, you need to at all of the CSS _and_ know the context that it's being used in.
+This is fine when your codebase is small and simple, but it introduces some really tricky problems. Now in order to understand what `.item` means you can't just look at one part of the CSS, you need to at all of the CSS _and_ know the context it's being used in.
 
 Imagine a function that behaved differently depending on where it was called from...
 
-## CSS Modules says "compose, don't cascade"
+## CSS Modules says "compose, don't redefine"
 
 To address this, CSS Modules discourages redefining classes and instead gives us better ways to compose them. For example, we could rewrite the CSS above without redefining the meaning of any classes:
 
@@ -49,7 +49,8 @@ When we have `Card` components in the player's hand we want to show them in a ro
 
 When a `Card` is discarded it goes to a pile. These cards have less dropshadow and are stacked on top of each other.
 
-**Task:** make `.cardInHand` and `.cardInDiscardPile` classes that compose the general `card` class.
+<div class="task"></div>
+Make `.cardInHand` and `.cardInDiscardPile` classes that compose the general `card` class.
 
 eg.
 
