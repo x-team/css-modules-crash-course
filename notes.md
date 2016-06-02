@@ -14,7 +14,6 @@ stages/
   04-whats-in-a-name
   05-nested-components
   06-bonus-postcss-plugins
-  07-bonus-3rd-party-libs
 ```
 
 ## Getting started
