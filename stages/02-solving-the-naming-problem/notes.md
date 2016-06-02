@@ -2,25 +2,40 @@
 
 Naming things is hard! In this stage we'll see how CSS Modules makes it easier.
 
-<h2 class="title">Adding titles to cards</h2>
+<h2 class="title">Adding some new cards to the game</h2>
 
-For this next stage we've added a title to our Coin card:
+In our game you use Coin cards to buy powerup cards:
 
 <div id="root"></div>
 
-**Task**: change the card's `.title` font to use `font-family: "Comic Sans MS"; color: #F0F;`
+But oh no! The card's title is too hard to read. Let's fix that.
+
+<div class="task">
+Edit `src/components/card/card.css` and add a `.title` class:
+
+```
+.title {
+  text-transform: uppercase;
+  font-family: impact;
+  color: #FFF;
+  text-shadow: 0 0 3px #000;
+}
+```
+
+Now run `npm run build` and refresh the page to see your changes.
 
 Notice how this had unexpected consequences elsewhere on the page?
+</div>
 
 The problem is that we have 2 things called `title`. How can we fix it?
 
-<h3 class="title">1. increase specificity?</h3>
+<h3 class="title">Idea #1: increase specificity?</h3>
 
 Eg. `.card .title`.
 
 The problem with this approach is that as the project grows it leads to a never-ending specificity battle.  There's always a chance that someone will introduce a new selector which has unintended cascades.
 
-<h3 class="title">2. come up with unique names?</h3>
+<h3 class="title">Idea #2: come up with unique names?</h3>
 
 Eg. BEM or SUIT conventions tell us to write classes like `.card__title`.
 
@@ -30,7 +45,8 @@ The downside to this approach is that it takes a lot of discipline.  Everyone in
 
 Let's invoke the power of CSS Modules to guarantee that we get a unique name.
 
-**Task**: edit the webpack config
+<div class="task">
+Edit `webpack.config.js`
 
 change:
 
@@ -43,8 +59,10 @@ to:
 ```
 loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]'
 ```
+</div>
 
-**Task**: edit `src/components/card/index.js`
+<div class="task">
+Edit `src/components/card/index.js`
 
 change:
 
@@ -73,10 +91,13 @@ to:
 ```
 
 And do the same for all of the other `class` attributes too.
+</div>
 
-**Task**: rebuild files with `npm run build` and refresh the page.
+<div class="task">
+Finally, rebuild files with `npm run build` and refresh the page.
 
 Now take a look at the code in the DOM inspector to see the unique classnames that have been generated for us.
+</div>
 
 <div class="core-concept">
 ## CSS Modules automatically generates unique names

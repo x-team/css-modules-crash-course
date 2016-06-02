@@ -45,4 +45,20 @@ To address this, CSS Modules discourages redefining classes and instead gives us
 
 ## The Player's Hand and the Discard Pile
 
-**Task:** make 3 different kinds of button by composing classes
+When we have `Card` components in the player's hand we want to show them in a row, with a nice blue glow around them.
+
+When a `Card` is discarded it goes to a pile. These cards have less dropshadow and are stacked on top of each other.
+
+**Task:** make `.cardInHand` and `.cardInDiscardPile` classes that compose the general `card` class.
+
+eg.
+
+```
+.cardInHand {
+  composes: card;
+
+  /* ...
+  custom overrides here
+  ... */
+}
+```

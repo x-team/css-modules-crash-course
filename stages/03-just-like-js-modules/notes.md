@@ -65,13 +65,11 @@ To import a value from another CSS Module:
 }
 ```
 
-## Adding new cards to the game
-
 ## Composing classes
 
 There are times when we want more than just a value, we want to import a group of styles.
 
-Traditional CSS already has this concept of "classes", and CSS Modules gives us an easy way to compose multiple classes together.
+Traditional CSS already has this concept of classes, and CSS Modules gives us an easy way to compose multiple classes together.
 
 ```
 .sharknado {
@@ -80,5 +78,22 @@ Traditional CSS already has this concept of "classes", and CSS Modules gives us 
 }
 ```
 
-## Sharing the text shadow class
 
+## Sharing Card styles
+
+We've seen 2 different kinds of cards so far, Coins and PowerUps. They have different layouts but some common styles. And if we are doing computering good we ought to be able to reuse those styles in both places.
+
+<div id="root"></div>
+
+<div class="task"></div>
+
+- edit the css for `components/coin-card` and `components/powerup-card` to remove duplicated styles by composing classes from `components/card/card.css`
+- edit `src/components/card/card.css` to use color values from `src/shared/colors.css`
+
+Now rebuild with `npm run build` and refresh the page to see your changes.
+
+At first glance, `composes` might seem similar to [the extend concept](https://css-tricks.com/the-extend-concept/) used by a lot of preprocessors. However `composes` is subtly different, in that it doesn't have any effect at all on the generated CSS (take a look and you'll see!). The only effect that it has is on the CSS Module's exported tokens. So for example, the DOM node will have 2 classnames instead of 1.
+
+<div class="core-concept">
+<h2><code>composes</code> doesn't affect generated CSS, only the classnames applied to a DOM node</h2>
+</div>
