@@ -1,22 +1,13 @@
 {
-  "name": "webpack-demo",
+  "name": "03-just-like-js-modules",
   "version": "1.0.0",
-  "description": "Working demo of CSS Modules, using Webpack's css-loader in module mode.",
-  "main": "index.js",
+  "description": "Stage 03: Just like JS modules",
+  "main": "webpack.config.js",
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "npm run clean && webpack",
-    "watch": "npm run clean && webpack --watch"
+    "build": "../../node_modules/.bin/webpack",
+    "watch": "../../node_modules/.bin/webpack --watch",
+    "open": "../../node_modules/.bin/opener ./index.html"
   },
-  "author": "Mark Dalgleish",
-  "license": "MIT",
-  "devDependencies": {
-    "css-loader": "^0.15.1",
-    "extract-text-webpack-plugin": "^0.8.1",
-    "file-loader": "^0.8.4",
-    "raw-loader": "^0.5.1",
-    "style-loader": "^0.12.3",
-    "webpack": "^1.9.10",
-    "webpack-dev-server": "^1.9.0"
-  }
+  "author": "joshwnj",
+  "license": "MIT"
 }
