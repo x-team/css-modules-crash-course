@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && webpack",
-    "watch": "npm run clean && webpack --watch"
+    "watch": "npm run clean && webpack --watch",
+    "open": "opener ./index.html"
   },
   "author": "Mark Dalgleish",
   "license": "MIT",

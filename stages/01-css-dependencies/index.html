@@ -1,41 +1,41 @@
 <html>
-    <head>
-        <title>CSS Modules Crash Course</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="src/assets/theme.css" rel="stylesheet" />
-        <link href="src/components/card/card.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="content">
-            <h1>CSS Dependencies for Components</h1>
-            <p>One of the first things to notice about CSS Modules is how it changes the way we declare CSS dependencies.</p>
-            <p>So how did we traditionally make a dependency to a CSS file, in the olden days? With a <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> of the page.</p>
-            <p>This works, but our CSS is now a dependency of the page. When we&#39;re dealing with a UI made up of components it makes much more sense if the CSS belongs to the component itself.</p>
-            <h2>Declaring dependencies in JS modules</h2>
-            <p>We have a firmly established pattern for declaring dependencies between JS modules, using <code>require</code> (or <code>import</code>).</p>
-            <p>eg:</p>
-            <pre><code>var myModule = require(&#39;./my-module.js&#39;)</code></pre>
+  <head>
+    <title>CSS Modules Crash Course</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="src/assets/theme.css" rel="stylesheet" />
+    <link href="src/components/card/card.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="content">
+      <h1>CSS Dependencies for Components</h1>
+      <p>One of the first things to notice about CSS Modules is how it changes the way we declare CSS dependencies.</p>
+      <p>So how did we traditionally make a dependency to a CSS file, in the olden days? With a <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> of the page.</p>
+      <p>This works, but our CSS is now a dependency of the page. When we&#39;re dealing with a UI made up of components it makes much more sense if the CSS belongs to the component itself.</p>
+      <h2>Declaring dependencies in JS modules</h2>
+      <p>We have a firmly established pattern for declaring dependencies between JS modules, using <code>require</code> (or <code>import</code>).</p>
+      <p>eg:</p>
+      <pre><code>var myModule = require(&#39;./my-module.js&#39;)</code></pre>
 
-            <div class="core-concept">
-                <h2>CSS Modules allows JS modules to have CSS dependencies</h2>
-                <p>CSS Modules allows us to declare a <code>js -&gt; css</code> dependency in a similar form to a <code>js -&gt; js</code> dependency.</p>
-                <p>eg:</p>
-                <pre><code>require(&#39;./my-styles.css&#39;)</code></pre>
-            </div>
+      <div class="core-concept">
+        <h2>CSS Modules allows JS modules to have CSS dependencies</h2>
+        <p>CSS Modules allows us to declare a <code>js -&gt; css</code> dependency in a similar form to a <code>js -&gt; js</code> dependency.</p>
+        <p>eg:</p>
+        <pre><code>require(&#39;./my-styles.css&#39;)</code></pre>
+      </div>
 
-            <h2>Let&#39;s Make a Game</h2>
-            <p>To learn more about CSS Modules we&#39;ll make some UI components for a card game. We&#39;ll start with the <code>Card</code> component.</p>
-            <p>Let&#39;s say we have a &quot;Coin&quot; card, and the aim of the game is to collect as many as you can:</p>
+      <h2>Let&#39;s Make a Game</h2>
+      <p>To learn more about CSS Modules we&#39;ll make some UI components for a card game. We&#39;ll start with the <code>Card</code> component.</p>
+      <p>Let&#39;s say we have a &quot;Coin&quot; card, and the aim of the game is to collect as many as you can:</p>
 
-            <div id="root"></div>
+      <div id="root"></div>
 
-            <p>At the moment the <code>Card</code> depends on CSS that has been included via a <code>&lt;link&gt;</code> tag in the HTML of this page.</p>
-            <p><strong>Task</strong>:</p>
-            <ul>
-                <li>remove the card&#39;s <code>&lt;link&gt;</code> tag</li>
-                <li>in the <code>Card</code> component (<code>src/components/card/card.js</code>), add a dependency to its CSS file: <code>require(&#39;./card.css&#39;)</code></li>
-            </ul>
-        </div>
-        <script src="dist/index.js"></script>
-    </body>
+      <p>At the moment the <code>Card</code> depends on CSS that has been included via a <code>&lt;link&gt;</code> tag in the HTML of this page.</p>
+      <p><strong>Task</strong>:</p>
+      <ul>
+        <li>remove the card&#39;s <code>&lt;link&gt;</code> tag</li>
+        <li>in the <code>Card</code> component (<code>src/components/card/card.js</code>), add a dependency to its CSS file: <code>require(&#39;./card.css&#39;)</code></li>
+      </ul>
+    </div>
+    <script src="dist/index.js"></script>
+  </body>
 </html>
