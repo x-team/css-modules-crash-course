@@ -2,53 +2,58 @@
     <head>
         <title>CSS Modules Crash Course</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="src/assets/theme.css" rel="stylesheet" />
+        <link href="../../assets/theme.css" rel="stylesheet" />
     </head>
     <body>
         <div class="content">
-            <h1 class="title">Solving the Naming Problem</h1>
+<h1 data-number="03">CSS Modules are just like JS Modules</h1>
+<h2>Q. What is a module?</h2>
+<p>For our purposes here let&#39;s say that a Module is an isolated portion of code that only has knowledge of the outside world through the things it <em>imports</em>, and only communicates with the outside world though the things it <em>exports</em>.</p>
+<pre><code class="lang-js">var squareOf = require(&#39;./square-of&#39;)
 
-            <p>Naming things is hard! In this stage we&#39;ll see how CSS Modules makes it easier.</p>
-            <h2 class="title">Adding titles to cards</h2>
+module.exports = function addSquares (a, b) {
+  return squareOf(a) + squareOf(b)
+}</code></pre>
+<h2>What does a CSS Module export?</h2>
+<p>Let&#39;s take a look.</p>
+<p><strong>Task:</strong> edit <code>src/components/card/index.js</code></p>
+<p>After <code>var styles = require(&#39;./card.css&#39;)</code> add:</p>
+<pre><code>console.log(styles)</code></pre>
+<p>You&#39;ll see something like this in the console:</p>
+<pre><code>{
+  card: &quot;card__card___3NKVt&quot;,
+  inner: &quot;card__inner___39eh3&quot;,
+  image: &quot;card__image___orw8-&quot;,
+  title: &quot;card__title___2GiVs&quot;
+}</code></pre>
+<p>On the left-hand side is the &quot;local name&quot; of the class, and on the right-hand size is the &quot;class token&quot; (that is, the actual classname used in the generated CSS).</p>
+<div class="core-concept">
+<h2>CSS Module exports a map of local names to class tokens</h2>
+</div>
 
-            <p>For this next stage we&#39;ve added a title to our Coin card:</p>
-            <div id="root"></div>
+<h2>CSS Modules can also import</h2>
+<p>As well as exporting class tokens, CSS Modules can import and export values using the special <code>@value</code> syntax. Anything defined as a <code>@value</code> can be used in a property-value.</p>
+<p>To define a <code>@value</code>:</p>
+<pre><code>@value myRed: #F66;
 
-            <p><strong>Task</strong>: change the card&#39;s <code>.title</code> font to use <code>font-family: &quot;Comic Sans MS&quot;; color: #F0F;</code></p>
-            <p>Notice how this had unexpected consequences elsewhere on the page?</p>
-            <p>The problem is that we have 2 things called <code>title</code>. How can we fix it?</p>
-            <ol>
-                <li>increase specificity? Eg. <code>.card .title</code>. Never-ending specificity battle.</li>
-                <li>come up with unique names? Eg. BEM <code>.card__title</code>. Takes a lot of discipline, everyone in the team needs to consistently follow the same convention.</li>
-            </ol>
-            <h2 class="title">Solution</h2>
+.banner {
+  background-color: myRed;
+}</code></pre>
+<p>To import a value from another CSS Module:</p>
+<pre><code>@value myRed from &quot;./colors.css&quot;;
 
-            <p>Let&#39;s use the power of CSS Modules to guarantee that we get a unique name.</p>
-            <p><strong>Task</strong>: edit the webpack config</p>
-            <p>change:</p>
-            <pre><code>loader: &#39;style-loader!css-loader&#39;</code></pre>
-            <p>to:</p>
-            <pre><code>loader: &#39;style-loader!css-loader?modules&amp;localIdentName=[name]__[local]___[hash:base64:5]&#39;</code></pre>
-            <p><strong>Task</strong>: edit <code>src/components/card/index.js</code></p>
-            <p>change:</p>
-            <pre><code>require(&#39;./card.css&#39;)</code></pre>
-            <p>to:</p>
-            <pre><code>var styles = require(&#39;./card.css&#39;)</code></pre>
-            <p>Now the <code>styles</code> object allows us to lookup the correct classname. To use these we&#39;ll need to edit the <code>class</code> attributes in the component&#39;s html:</p>
-            <p>change:</p>
-            <pre><code>&lt;div class=&quot;title&quot;&gt;</code></pre>
-            <p>to:</p>
-            <pre><code>&lt;div class=&quot;${styles.title}&quot;&gt;</code></pre>
-            <p>And do the same for all of the other <code>class</code> attributes too.</p>
-            <p><strong>Task</strong>: restart webpack with <code>npm run watch</code></p>
-            <p>Now take a look at the code in the DOM inspector to see the unique classnames that have been generated for us.</p>
-            <div class="core-concept">
-                <h2>CSS Modules automatically generates unique names</h2>
-
-                <p>CSS Modules ensures we always have a unique name, so we can just use the most obvious name within the context of a component.</p>
-
-                <p>Also consider how this relates to dependencies. If we&#39;re using global selectors, we might have code dependencies coming from everywhere. If the component &quot;owns&quot; its css, we have confidence that these classnames are only depended on by 1 isolated part of our code.</p>
-            </div>
+.banner {
+  background-color: myRed;
+}</code></pre>
+<h2>Adding new cards to the game</h2>
+<h2>Composing classes</h2>
+<p>There are times when we want more than just a value, we want to import a group of styles.</p>
+<p>Traditional CSS already has this concept of &quot;classes&quot;, and CSS Modules gives us an easy way to compose multiple classes together.</p>
+<pre><code>.sharknado {
+  composes: shark;
+  composes: tornado from &quot;./natural-disasters.css&quot;;
+}</code></pre>
+<h2>Sharing the text shadow class</h2>
         </div>
         <script src="dist/index.js"></script>
     </body>

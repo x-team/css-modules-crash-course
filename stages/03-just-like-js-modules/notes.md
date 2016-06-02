@@ -38,7 +38,7 @@ You'll see something like this in the console:
 On the left-hand side is the "local name" of the class, and on the right-hand size is the "class token" (that is, the actual classname used in the generated CSS).
 
 <div class="core-concept">
-<h2>CSS Module exports a map of local names to class tokens</h2>
+<h2>A CSS Module exports a map of local names to class tokens</h2>
 </div>
 
 ## CSS Modules can also import

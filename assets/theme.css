@@ -39,6 +39,7 @@ code {
 pre code {
   display: block;
   padding: 8px 4px;
+  overflow: auto;
 }
 
 .content {
@@ -77,6 +78,10 @@ h1::before {
   padding: 16px;
   margin: 32px 0;
   margin-left: -32px;
+}
+
+.core-concept h2 {
+  font-style: italic;
 }
 
 .core-concept code {

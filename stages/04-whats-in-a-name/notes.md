@@ -25,7 +25,7 @@ Imagine a function that behaved differently depending on where it was called fro
 
 ## CSS Modules says "compose, don't cascade"
 
-To address this, CSS Modules discourages redefining classes and instead gives us better ways to compose them. For example, we could rewrite the CSS above as:
+To address this, CSS Modules discourages redefining classes and instead gives us better ways to compose them. For example, we could rewrite the CSS above without redefining the meaning of any classes:
 
 ```
 .item {

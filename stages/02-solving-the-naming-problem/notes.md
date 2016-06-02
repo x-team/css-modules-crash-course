@@ -74,7 +74,7 @@ to:
 
 And do the same for all of the other `class` attributes too.
 
-**Task**: restart webpack with `npm run watch`
+**Task**: rebuild files with `npm run build` and refresh the page.
 
 Now take a look at the code in the DOM inspector to see the unique classnames that have been generated for us.
 
@@ -83,5 +83,5 @@ Now take a look at the code in the DOM inspector to see the unique classnames th
 
 CSS Modules ensures we always have a unique name, so we can just use the most obvious name within the context of a component.
 
-Also consider how this relates to dependencies. If we're using global selectors, we might have code dependencies coming from everywhere. If the component "owns" its css, we have confidence that these classnames are only depended on by 1 isolated part of our code.
+Also consider how this relates to dependencies. If we're using global selectors, we potentially have code dependencies coming from everywhere. If the component "owns" its css, we have confidence that these classnames are only depended on by 1 isolated part of our code.
 </div>
