@@ -1,4 +1,21 @@
-.logo {
+h1 {
+  border-color: #FFF;
+}
+
+.logos {
+  font-size: 64px;
+  color: #F66;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+}
+
+.logos img {
   width: 200px;
-  vertical-align: middle;
+}
+
+.logos img:last-child {
+  width: 135px;
+  margin-left: 32px;
 }

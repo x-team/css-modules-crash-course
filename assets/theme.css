@@ -1,0 +1,117 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: Helvetica, Arial;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 200;
+}
+
+code {
+  background: #EEE;
+  border: 1px solid #FFF;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 16px;
+}
+
+pre code {
+  display: block;
+  padding: 8px 4px;
+}
+
+.content {
+  width: 70%;
+  max-width: 900px;
+  min-width: 600px;
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: 64px;
+}
+
+h1 {
+  position: relative;
+  border-left: 150px solid #36C;
+  margin-left: -166px;
+  padding-left: 16px;
+}
+
+h1::before {
+  content: attr(data-number);
+  font-family: Helvetica, Arial;
+  font-size: 64px;
+  font-weight: 200;
+  padding: 16px 32px;
+  color: #FFF;
+  text-align: center;
+  margin-top: 8px;
+  margin-left: -166px;
+  width: 150px;
+  display: inline-block;
+  float: left;
+}
+
+.core-concept {
+  border-left: 16px solid #36C;
+  padding: 16px;
+  margin: 32px 0;
+  margin-left: -32px;
+}
+
+.core-concept code {
+  white-space: nowrap;
+}
+
+.core-concept::before {
+  content: "Core Concept";
+  text-transform: uppercase;
+  font-size: 12px;
+  background: #FFF;
+  padding: 4px;
+}
+
+.task {
+  border-left: 16px solid #F66;
+  padding: 16px;
+  margin: 32px 0;
+  margin-left: -32px;
+}
+
+.task li {
+  padding: 16px 0;
+}
+
+.task::before {
+  content: "To do";
+  text-transform: uppercase;
+  font-size: 12px;
+  background: #FFF;
+  padding: 4px;
+}
+
+#root {
+  display: flex;
+  justify-content: space-around;
+  margin: 32px 0;
+}
