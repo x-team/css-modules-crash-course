@@ -38,8 +38,10 @@ Let's say we have a "Coin" card, and the aim of the game is to collect as many a
 
 At the moment the `Card` depends on CSS that has been included via a `<link>` tag in the HTML of this page.
 
-**Task**:
+<div class="task">
 
-- remove the card's `<link>` tag
+- edit `index.html` and remove the `<link>` tag with href of `.../card.css`
 - in the `Card` component (`src/components/card/card.js`), add a dependency to its CSS file: `require('./card.css')`
+- re-run `npm run build` and refresh this page.
 
+</div>

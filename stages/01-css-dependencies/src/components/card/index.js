@@ -1,3 +1,5 @@
+require('./card.css')
+
 module.exports = function (data) {
   return `
 <div class="card">
