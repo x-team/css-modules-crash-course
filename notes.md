@@ -12,7 +12,7 @@ stages/
   02-solving-the-naming-problem
   03-just-like-js-modules
   04-whats-in-a-name
-  05-nested-components
+  05-variants
   06-bonus-postcss-plugins
 ```
 
