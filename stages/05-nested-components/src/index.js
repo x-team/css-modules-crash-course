@@ -16,9 +16,9 @@ const html = renderCardList({
     {
       label: 'Disabled',
       card: {
-        title: 'i know that feel bro',
-        image: 'src/assets/that-feel.png',
-        description: 'Discard all manly man cards',
+        title: 'bat slap',
+        image: 'src/assets/batman-slap.png',
+        description: 'You may give your opponent 1 slap',
         isEnabled: false,
         isNew: false
       }
@@ -27,9 +27,9 @@ const html = renderCardList({
     {
       label: 'New + Disabled',
       card: {
-        title: 'i know that feel bro',
-        image: 'src/assets/that-feel.png',
-        description: 'Discard all manly man cards',
+        title: 'business cat',
+        image: 'src/assets/business-cat.png',
+        description: 'Collect compound interest on your coins',
         isEnabled: false,
         isNew: true
       }

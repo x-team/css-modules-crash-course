@@ -16,22 +16,38 @@ So that my micropurchase reflex is triggered</code></pre>
 <pre><code>As a Player
 I want to know which cards I don&#39;t have enough coins for
 So that I can feel bad about myself</code></pre>
-<p>To implement these we&#39;ve added 2 new properties to the <code>Card</code> component: <code>isNew</code> and <code>isEnabled</code>. Each of these flags will apply a different visual state to the card. To do this we&#39;ve got 2 classes:</p>
+<p>To implement these we&#39;ve added 2 new properties to the <code>Card</code> component: <code>isNew</code> and <code>isEnabled</code>. Each of these flags will apply a different visual state to the card, via the following CSS classes:</p>
 <ul>
-<li><code>.new</code>: this class puts a blue circle with the word &quot;NEW&quot; in it, on the top-left corner of the card.</li>
-<li><code>.disabled</code>: this class causes the card to appear faded out.</li>
+<li><code>.new</code>: adds a blue circle to the top-left corner of the card with the word &quot;NEW&quot;.</li>
+<li><code>.disabled</code>: causes the card to appear darkened.</li>
 </ul>
 <p>Also, our AB tests have indicated that a player&#39;s micropurchase reflex is heightened when they are already feeling bad about themselves. So we definitely want to be able to combine both the <code>.new</code> and the <code>.disabled</code> classes, as well as using them individually.</p>
-<ul>
-<li>new</li>
-<li>disabled</li>
-<li>disabled + new</li>
-</ul>
 <div id="root"></div>
+
+<div class="task">
+<p>Edit <code>src/components/powerup-card/index.js</code> to check for <code>data.isNew</code> and <code>data.isEnabled</code> and apply the related styles accordingly.</p>
+
+<em>Hint:</em> you can do it by hand, but you might also like to try using the <code>classnames</code> package. Eg:
+
+<pre><code>var styles = require(&#39;./card.css&#39;)
+var cx = require(&#39;classnames/bind&#39;).bind(styles)
+
+var classnames = cx({
+  frodo: true,
+  samwise: false,
+  gandalf: true
+})
+
+return `&lt;div class=&quot;${classnames}&quot;&gt;...&lt;/div&gt;`
+
+// ^^ identical to `&lt;div class=&quot;${styles.frodo} ${styles.gandalf}&quot;&gt;...&lt;/div&gt;`
+</code></pre>
+</div>
 
 <div class="core-concept">
 <h2>Use <code>composes</code> for making new components, and compose classes manually within the JS component for state-based variations.</h2>
 </div>
+
 
         </div>
         <script src="dist/index.js"></script>

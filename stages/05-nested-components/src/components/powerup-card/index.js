@@ -3,9 +3,11 @@ var cx = require('classnames/bind').bind(styles)
 
 module.exports = function (data) {
   var variants = {
+    root: true,
     new: data.isNew,
     disabled: !data.isEnabled
   }
+
   return `
 <div class="${cx('root', variants)}">
   <div class="${styles.inner}">

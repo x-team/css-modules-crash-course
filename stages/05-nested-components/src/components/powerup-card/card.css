@@ -1,13 +1,15 @@
+@value cardStyles: "../card/card.css";
+
 .root {
-  composes: root from "../card/card.css";
+  composes: root from cardStyles;
 }
 
 .inner {
-  composes: inner from "../card/card.css";
+  composes: inner from cardStyles;
 }
 
 .image {
-  composes: image from "../card/card.css";
+  composes: image from cardStyles;
   border: 1px solid #000;
   margin-bottom: -32px;
 }
@@ -19,7 +21,7 @@
   width: 80%;
   padding: 16px;
   font-family: "Comic Sans MS";
-  font-size: 16px;
+  font-size: 12px;
   text-shadow: none;
   text-transform: none;
 }
@@ -31,11 +33,13 @@
   text-shadow: 0 0 3px #000;
 }
 
+/** .root variant **/
 .new {
   position: relative;
 }
 
 .new::before {
+  z-index: 100;
   content: "NEW!";
   background: #00f;
   color: #fff;
@@ -50,6 +54,7 @@
   box-shadow: 0px 0px 30px #f0f;
 }
 
+/** .root variant **/
 .disabled {
   background: #999;
 }
