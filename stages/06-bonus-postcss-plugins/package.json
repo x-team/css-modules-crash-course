@@ -1,0 +1,13 @@
+{
+  "name": "04-whats-in-a-name",
+  "version": "1.0.0",
+  "description": "Stage 04: What's in a name?",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "../../node_modules/.bin/webpack",
+    "watch": "../../node_modules/.bin/webpack --watch",
+    "open": "../../node_modules/.bin/opener ./index.html"
+  },
+  "author": "joshwnj",
+  "license": "MIT"
+}
