@@ -49,8 +49,8 @@ When we have `Card` components in the player's hand we want to show them in a ro
 
 When a `Card` is discarded it goes to a pile. These cards have less dropshadow and are stacked on top of each other.
 
-<div class="task"></div>
-Make `.cardInHand` and `.cardInDiscardPile` classes that compose the general `card` class.
+<div class="task">
+<p>Make `.cardInHand` and `.cardInDiscardPile` classes that compose the general `card` class.</p>
 
 eg.
 
@@ -63,3 +63,6 @@ eg.
   ... */
 }
 ```
+</div>
+
+<div id="root"></div>

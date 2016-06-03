@@ -3,10 +3,16 @@
         <title>CSS Modules Crash Course</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="../../assets/theme.css" rel="stylesheet" />
+        <style>
+          #root {
+            justify-content: space-between;
+          }
+        </style>
     </head>
     <body>
         <div class="content">
 <h1 data-number="04">What&#39;s in a Name?</h1>
+
 <p>When writing UI components we often want to use default styles and then override them as needed. For example, we might want a Card component to appear slightly differently based on whether it is in the players hand, or the discard pile.</p>
 <h2>Traditional CSS</h2>
 <p>Here&#39;s how this is often solved in traditional CSS:</p>
@@ -18,10 +24,10 @@
 .list .item {
   color: blue;
 }</code></pre>
-<p>What&#39;s happening here? We&#39;re define default styles as <code>.item</code>, and the we redefine what <code>.item</code> means when it&#39;s in the context of a <code>.list</code>.</p>
-<p>This is fine when your codebase is small and simple, but it introduces some really tricky problems. Now, in order to understand what <code>.item</code> means you can&#39;t just look at one part of the CSS, you need to at all of the CSS <em>and</em> know the context that it&#39;s being used in.</p>
+<p>What&#39;s happening here? We&#39;ve given the default styles the name of <code>.item</code>, and then we&#39;ve redefined what <code>.item</code> means when it&#39;s in the context of a <code>.list</code>.</p>
+<p>This is fine when your codebase is small and simple, but it introduces some really tricky problems. Now in order to understand what <code>.item</code> means you can&#39;t just look at one part of the CSS, you need to at all of the CSS <em>and</em> know the context it&#39;s being used in.</p>
 <p>Imagine a function that behaved differently depending on where it was called from...</p>
-<h2>CSS Modules says &quot;compose, don&#39;t cascade&quot;</h2>
+<h2>CSS Modules says &quot;compose, don&#39;t redefine&quot;</h2>
 <p>To address this, CSS Modules discourages redefining classes and instead gives us better ways to compose them. For example, we could rewrite the CSS above without redefining the meaning of any classes:</p>
 <pre><code>.item {
   color: red;
@@ -39,18 +45,23 @@
 <h2>The Player&#39;s Hand and the Discard Pile</h2>
 <p>When we have <code>Card</code> components in the player&#39;s hand we want to show them in a row, with a nice blue glow around them.</p>
 <p>When a <code>Card</code> is discarded it goes to a pile. These cards have less dropshadow and are stacked on top of each other.</p>
-
 <div class="task">
 <p>Make <code>.cardInHand</code> and <code>.cardInDiscardPile</code> classes that compose the general <code>card</code> class.</p>
-<p>eg.</p>
-<pre><code>.cardInHand {
+
+eg.
+
+<code>.cardInHand {
   composes: card;
 
   /* ...
   custom overrides here
   ... */
-}</code></pre>
+}</code>
 </div>
+
+<div id="root"></div>
+
+
         </div>
         <script src="dist/index.js"></script>
     </body>

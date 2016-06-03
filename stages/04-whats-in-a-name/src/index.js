@@ -1,17 +1,12 @@
-const renderCoinCard = require('./components/coin-card')
-const renderPowerupCard = require('./components/powerup-card')
+const renderHand = require('./components/hand')
+const renderDiscardPile = require('./components/discard-pile')
+const store = require('./store')
 
-const coinCard = renderCoinCard()
-const powerupCard = renderPowerupCard({
-  title: 'arson cows',
-  image: 'src/assets/cows.png',
-  description: 'Opponent loses 2 barns'
-})
-
-const html = `<div>
-${coinCard}
-${powerupCard}
-</div>`
+const html = `
+<div>
+  ${renderHand(store.hand)}
+  ${renderDiscardPile(store.discardPile)}
+</div>
 
 // render our component in the DOM
 document.getElementById('root').innerHTML = html

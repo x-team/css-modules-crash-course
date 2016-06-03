@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+}
+
+.item {
+  margin-left: -180px;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.item:first-child {
+  margin-left: 0;
+}
+
+.item:hover {
+  margin-top: -300px;
+}
+
+.card {
+  margin-top: 32px;
+}
