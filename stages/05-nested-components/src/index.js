@@ -5,8 +5,8 @@ const html = renderCardList({
     {
       label: 'New',
       card: {
-        title: 'that feel bro',
-        image: 'src/assets/that-feel.jpg',
+        title: 'i know that feel bro',
+        image: 'src/assets/that-feel.png',
         description: 'Discard all manly man cards',
         isEnabled: true,
         isNew: true
@@ -16,8 +16,8 @@ const html = renderCardList({
     {
       label: 'Disabled',
       card: {
-        title: 'that feel bro',
-        image: 'src/assets/that-feel.jpg',
+        title: 'i know that feel bro',
+        image: 'src/assets/that-feel.png',
         description: 'Discard all manly man cards',
         isEnabled: false,
         isNew: false
@@ -27,8 +27,8 @@ const html = renderCardList({
     {
       label: 'New + Disabled',
       card: {
-        title: 'that feel bro',
-        image: 'src/assets/that-feel.jpg',
+        title: 'i know that feel bro',
+        image: 'src/assets/that-feel.png',
         description: 'Discard all manly man cards',
         isEnabled: false,
         isNew: true
