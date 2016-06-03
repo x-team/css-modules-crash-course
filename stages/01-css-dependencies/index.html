@@ -10,7 +10,8 @@
       <h1 data-number="01">CSS Dependencies for Components</h1>
       <p>One of the first things to notice about CSS Modules is how it changes the way we declare CSS dependencies.</p>
       <p>So how did we traditionally make a dependency to a CSS file, in the olden days? With a <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> of the page.</p>
-      <p>This works, but our CSS is now a dependency of the page. When we&#39;re dealing with a UI made up of components it makes much more sense if the CSS belongs to the component itself.</p>
+      <p>This works, but now we've got an <code>html -> css</code> dependency.  When we're dealing with a UI made up of components it makes much more sense if each JS component can have its own CSS.
+</p>
       <h2>Declaring dependencies in JS modules</h2>
       <p>We have a firmly established pattern for declaring dependencies between JS modules, using <code>require</code> (or <code>import</code>).</p>
       <p>eg:</p>

@@ -4,7 +4,7 @@ One of the first things to notice about CSS Modules is how it changes the way we
 
 So how did we traditionally make a dependency to a CSS file, in the olden days? With a `<link>` tag in the `<head>` of the page.
 
-This works, but our CSS is now a dependency of the page. When we're dealing with a UI made up of components it makes much more sense if each component can have its own CSS.
+This works, but now we've got a `html -> css` dependency.  When we're dealing with a UI made up of components it makes much more sense if each JS component can have its own CSS.
 
 ## Declaring dependencies in JS modules
 

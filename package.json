@@ -20,7 +20,8 @@
     "clean": "rm -rf dist",
     "build": "npm run clean && webpack",
     "watch": "npm run clean && webpack --watch",
-    "open": "opener ./index.html"
+    "open": "opener ./index.html",
+    "open-stages": "opener ./stages/**/index.html"
   },
   "keywords": [
     "css-modules"
