@@ -1,0 +1,79 @@
+@value cardStyles: "../powerup-card/card.css";
+@value colors: "../../shared/colors.css";
+@value paleGrey from colors;
+@value midGrey from colors;
+
+.root {
+  display: flex;
+}
+
+.card {
+  composes: root from cardStyles;
+}
+
+.inner {
+  composes: inner from cardStyles;
+}
+
+.image {
+  composes: image from cardStyles;
+}
+
+.title {
+  composes: title from cardStyles;
+}
+
+.description {
+  composes: description from cardStyles;
+}
+
+/** player's hand **/
+
+.hand {
+  display: flex;
+}
+
+.cardInHand {
+  composes: card;
+  margin-left: -180px;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.cardInHand:first-child {
+  margin-left: 0;
+}
+
+.cardInHand:hover {
+  margin-top: -300px;
+}
+
+/** discard pile **/
+.discardPile {
+  position: relative;
+}
+
+.cardInDiscardPile {
+  composes: card;
+  top: 0px;
+  position: absolute;
+  box-shadow: -1px 1px 4px midGrey;
+}
+
+.cardInDiscardPile:last-child {
+  top: 5px;
+  left: 5px;
+}
+
+.cardInDiscardPile::before {
+  border-radius: 12px;
+  content: "";
+  position: absolute;
+  background: #000;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
