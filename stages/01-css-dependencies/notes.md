@@ -41,7 +41,7 @@ At the moment the `Card` depends on CSS that has been included via a `<link>` ta
 <div class="task">
 
 - edit `index.html` and remove the `<link>` tag with href of `.../card.css`
-- in the `Card` component (`src/components/card/card.js`), add a dependency to its CSS file: `require('./card.css')`
+- in the `Card` component (`src/components/card/index.js`), add a dependency to its CSS file: `require('./card.css')`
 - re-run `npm run build` and refresh this page.
 
 </div>
