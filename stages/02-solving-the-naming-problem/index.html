@@ -11,38 +11,67 @@
             <p>Naming things is hard! In this stage we&#39;ll see how CSS Modules makes it easier.</p>
             <h2 class="title">Adding titles to cards</h2>
 
-            <p>For this next stage we&#39;ve added a title to our Coin card:</p>
+            <p>In our game you use Coin cards to buy powerup cards:</p>
             <div id="root"></div>
 
-            <p><strong>Task</strong>: change the card&#39;s <code>.title</code> font to use <code>font-family: &quot;Comic Sans MS&quot;; color: #F0F;</code></p>
-            <p>Notice how this had unexpected consequences elsewhere on the page?</p>
-            <p>The problem is that we have 2 things called <code>title</code>. How can we fix it?</p>
-            <ol>
-                <li>increase specificity? Eg. <code>.card .title</code>. Never-ending specificity battle.</li>
-                <li>come up with unique names? Eg. BEM <code>.card__title</code>. Takes a lot of discipline, everyone in the team needs to consistently follow the same convention.</li>
-            </ol>
+            <p>But oh no! The card's title is too hard to read. Let's fix that.</p>
+
+            <div class="task">
+<p>Edit <code>src/components/card/card.css</code> and add a <code>.title</code> class:</p>
+
+<pre><code>.title {
+  text-transform: uppercase;
+  font-family: impact;
+  color: #FFF;
+  text-shadow: 0 0 3px #000;
+}</code></pre>
+<p>Now run <code>npm run build</code> and refresh the page to see your changes.</p>
+<p>Notice how this had unexpected consequences elsewhere on the page?</p>
+
+            </div>
+
+<p>The problem is that we have 2 things called <code>title</code>. How can we fix it?</p>
+<h3 class="title">Idea #1: increase specificity?</h3>
+
+<p>Eg. <code>.card .title</code>.</p>
+<p>The problem with this approach is that as the project grows it leads to a never-ending specificity battle.  There&#39;s always a chance that someone will introduce a new selector which has unintended cascades.</p>
+<h3 class="title">Idea #2: come up with unique names?</h3>
+
+<p>Eg. BEM or SUIT conventions tell us to write classes like <code>.card__title</code>.</p>
+<p>The downside to this approach is that it takes a lot of discipline.  Everyone in the team needs to consistently follow the same convention, and it becomes more complex the bigger your project gets.</p>
+
 
             <h2 class="title">Solution</h2>
 
-            <p>Let&#39;s use the power of CSS Modules to guarantee that we get a unique name.</p>
-            <p><strong>Task</strong>: edit the webpack config</p>
-            <p>change:</p>
-            <pre><code>loader: &#39;style-loader!css-loader&#39;</code></pre>
-            <p>to:</p>
-            <pre><code>loader: &#39;style-loader!css-loader?modules&amp;localIdentName=[name]__[local]___[hash:base64:5]&#39;</code></pre>
-            <p><strong>Task</strong>: edit <code>src/components/card/index.js</code></p>
-            <p>change:</p>
-            <pre><code>require(&#39;./card.css&#39;)</code></pre>
-            <p>to:</p>
-            <pre><code>var styles = require(&#39;./card.css&#39;)</code></pre>
-            <p>Now the <code>styles</code> object allows us to lookup the correct classname. To use these we&#39;ll need to edit the <code>class</code> attributes in the component&#39;s html:</p>
-            <p>change:</p>
-            <pre><code>&lt;div class=&quot;title&quot;&gt;</code></pre>
-            <p>to:</p>
-            <pre><code>&lt;div class=&quot;${styles.title}&quot;&gt;</code></pre>
-            <p>And do the same for all of the other <code>class</code> attributes too.</p>
-            <p><strong>Task</strong>: restart webpack with <code>npm run watch</code></p>
-            <p>Now take a look at the code in the DOM inspector to see the unique classnames that have been generated for us.</p>
+            <p>Let&#39;s invoke the power of CSS Modules to guarantee that we get a unique name.</p>
+
+<div class="task">
+<p>First we&#39;ll edit the <code>webpack.config.js</code></p>
+<p>change:</p>
+<pre><code>loader: &#39;style-loader!css-loader&#39;</code></pre>
+<p>to:</p>
+<pre><code>loader: &#39;style-loader!css-loader?modules&amp;localIdentName=[name]__[local]___[hash:base64:5]&#39;</code></pre>
+</div>
+
+<div class="task">
+<p>Next, edit the component to access the classes of our CSS module: <code>src/components/card/index.js</code></p>
+<p>change:</p>
+<pre><code>require(&#39;./card.css&#39;)</code></pre>
+<p>to:</p>
+<pre><code>var styles = require(&#39;./card.css&#39;)</code></pre>
+<p>Now the <code>styles</code> object allows us to lookup the correct classname. To use these we&#39;ll need to edit the <code>class</code> attributes in the component&#39;s html:</p>
+<p>change:</p>
+<pre><code>&lt;div class=&quot;title&quot;&gt;</code></pre>
+<p>to:</p>
+<pre><code>&lt;div class=&quot;${styles.title}&quot;&gt;</code></pre>
+<p>And do the same for all of the other <code>class</code> attributes too.</p>
+</div>
+
+<div class="task">
+<p>Finally, rebuild files with <code>npm run build</code> and refresh the page.</p>
+<p>Now take a look at the code in the DOM inspector to see the unique classnames that have been generated for us.</p>
+</div>
+
             <div class="core-concept">
                 <h2>CSS Modules automatically generates unique names</h2>
 

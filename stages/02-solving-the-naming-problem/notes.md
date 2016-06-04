@@ -11,7 +11,7 @@ In our game you use Coin cards to buy powerup cards:
 But oh no! The card's title is too hard to read. Let's fix that.
 
 <div class="task">
-Edit `src/components/card/card.css` and add a `.title` class:
+<p>Edit `src/components/card/card.css` and add a `.title` class:</p>
 
 ```
 .title {
@@ -41,16 +41,12 @@ Eg. BEM or SUIT conventions tell us to write classes like `.card__title`.
 
 The downside to this approach is that it takes a lot of discipline.  Everyone in the team needs to consistently follow the same convention, and it becomes more complex the bigger your project gets.
 
-<div class="core-concept">
-<h2>A name should mean 1 thing only</h2>
-</div>
-
 <h2 class="title">Solution</h2>
 
 Let's invoke the power of CSS Modules to guarantee that we get a unique name.
 
 <div class="task">
-Edit `webpack.config.js`
+First we'll edit the `webpack.config.js`
 
 change:
 

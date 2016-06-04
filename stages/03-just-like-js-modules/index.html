@@ -16,7 +16,9 @@ module.exports = function addSquares (a, b) {
 }</code></pre>
 <h2>What does a CSS Module export?</h2>
 <p>Let&#39;s take a look.</p>
-<p><strong>Task:</strong> edit <code>src/components/card/index.js</code></p>
+
+<div class="task">
+<p>Edit <code>src/components/card/index.js</code></p>
 <p>After <code>var styles = require(&#39;./card.css&#39;)</code> add:</p>
 <pre><code>console.log(styles)</code></pre>
 <p>You&#39;ll see something like this in the console:</p>
@@ -27,6 +29,8 @@ module.exports = function addSquares (a, b) {
   title: &quot;card__title___2GiVs&quot;
 }</code></pre>
 <p>On the left-hand side is the &quot;local name&quot; of the class, and on the right-hand size is the &quot;class token&quot; (that is, the actual classname used in the generated CSS).</p>
+</div>
+
 <div class="core-concept">
 <h2>A CSS Module exports a map of local names to class tokens</h2>
 </div>

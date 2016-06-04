@@ -16,7 +16,8 @@ module.exports = function addSquares (a, b) {
 
 Let's take a look.
 
-**Task:** edit `src/components/card/index.js`
+<div class="task">
+Edit `src/components/card/index.js`
 
 After `var styles = require('./card.css')` add:
 
@@ -36,6 +37,7 @@ You'll see something like this in the console:
 ```
 
 On the left-hand side is the "local name" of the class, and on the right-hand size is the "class token" (that is, the actual classname used in the generated CSS).
+</div>
 
 <div class="core-concept">
 <h2>A CSS Module exports a map of local names to class tokens</h2>
