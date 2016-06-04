@@ -1,13 +1,9 @@
-@value colors: "../../shared/colors.css";
-@value paleGrey from colors;
-@value midGrey from colors;
-
 .root {
   width: 200px;
   height: 300px;
   padding: 16px;
   border-radius: 12px;
-  box-shadow: -4px 4px 16px midGrey;
+  box-shadow: -4px 4px 16px #999;
   text-transform: uppercase;
   display: inline-block;
   vertical-align: top;
@@ -16,7 +12,7 @@
 }
 
 .root:hover {
-  box-shadow: -4px 14px 16px midGrey;
+  box-shadow: -4px 14px 16px #999;
 }
 
 .inner {
@@ -25,7 +21,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background: paleGrey;
+  background: #EEE;
   border-radius: 4px;
 }
 

@@ -1,4 +1,12 @@
-var styles = require('./card.css')
+var styles = {
+  card: 'card',
+  inner: 'inner',
+  image: 'image',
+  title: 'title',
+  description: 'description'
+}
+
+require('./card.css')
 
 module.exports = function (data) {
   return `

@@ -3,11 +3,17 @@
 }
 
 .inner {
-  composes: inner from "../common-card/card.css";
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: #EEE;
+  border-radius: 4px;
 }
 
 .image {
-  composes: image from "../common-card/card.css";
+  width: 100%;
   border: 1px solid #000;
   margin-bottom: -32px;
 }
