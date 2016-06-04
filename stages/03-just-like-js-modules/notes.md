@@ -17,7 +17,7 @@ module.exports = function addSquares (a, b) {
 Let's take a look.
 
 <div class="task">
-Edit `src/components/card/index.js`
+Edit `src/components/coin-card/index.js`
 
 After `var styles = require('./card.css')` add:
 
@@ -89,8 +89,8 @@ We've seen 2 different kinds of cards so far, Coins and PowerUps. They have diff
 
 <div class="task"></div>
 
-- edit the css for `components/coin-card` and `components/powerup-card` to remove duplicated styles by composing classes from `components/card/card.css`
-- edit `src/components/card/card.css` to use color values from `src/shared/colors.css`
+- edit the css for `components/coin-card` and `components/powerup-card` to remove duplicated styles by composing classes from `components/common-card/card.css`
+- edit `src/components/common-card/card.css` to use color values from `src/shared/colors.css`
 
 Now rebuild with `npm run build` and refresh the page to see your changes.
 
