@@ -2,6 +2,17 @@ h1 {
   border-color: #FFF;
 }
 
+.xteam {
+  font: italic 16px/1 Courier, monospace;
+  border-bottom: 1px dotted #000;
+  margin-left: 32px;
+}
+
+.xteam img {
+  width: 60px;
+  vertical-align: middle;
+}
+
 .logos {
   font-size: 64px;
   color: #F66;
