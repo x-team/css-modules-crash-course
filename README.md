@@ -1,6 +1,8 @@
 # CSS Modules Crash Course
 
-A [Camp JS VII](http://vii.campjs.com/) Workshop
+A [Camp JS VII](http://vii.campjs.com/) Workshop.
+
+The goal is to introduce some of the core principles behind CSS Modules, and give you an experience of getting up and running.
 
 ## Prerequisites
 
